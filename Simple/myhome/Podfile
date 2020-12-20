@@ -40,6 +40,8 @@ target 'myhome' do
     pod 'FSCounter', :path => '../../../Private/FSCounterPrivate/'
 
     pod 'FSApp', :path => '../../../Alpha/Components/FSApp'
+    pod 'FSCache', :path => '../../../Alpha/Components/FSCache'
+
 
     pod 'FSBirthday', :path => '../../../Private/FSBirthdayPrivate/'
 #   pod 'FSRouter',:path => '../../../github/Alpha/Components/FSRouter'
@@ -48,6 +50,7 @@ target 'myhome' do
     pod 'FSViewToImage',:path => '../../../FSViewToImage'
     pod 'FSShare', :path => '../../../FSShare'
     pod 'FSBaseController', :path => '../../../FSBaseController/'
+    pod 'FSKit', :path => '../../../FSKit/'
 #   pod 'FSJZKit', :path => '../../../FSJZKit/'
 
 end
