@@ -8,7 +8,6 @@
 
 #import "ARPersonController.h"
 #import "FSShare.h"
-#import <StoreKit/StoreKit.h>
 #import <FSUIKit.h>
 #import "FSTrackKeys.h"
 #import "FSUseGestureView+Factory.h"
@@ -24,7 +23,7 @@
 #import "FSCacheManager.h"
 #import "FSTapCell.h"
 
-@interface ARPersonController ()<SKStoreProductViewControllerDelegate>
+@interface ARPersonController ()
 
 @property (nonatomic,strong) FSTapCell      *feedbackCell;
 @property (nonatomic,strong) FSTapCell      *aboutCell;
@@ -206,27 +205,6 @@
         [self showWaitView:NO];
         self->_clearCell.detailTextLabel.text = @"0.00 K";
     }];
-}
-
-//- (void)evaluate{
-//    [FSTrack event:_UMeng_Event_cent_start];
-//    SKStoreProductViewController *storeVC = [[SKStoreProductViewController alloc] init];
-//    storeVC.delegate = self;
-//    [self presentViewController:storeVC animated:YES completion:nil];
-//    __weak typeof(self)this = self;
-//    [storeVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@(1291692536)} completionBlock:^(BOOL result, NSError * error) {
-//        if (error) {
-//            [FSTrack event:_UMeng_Event_cent_fail];
-//            [storeVC dismissViewControllerAnimated:YES completion:nil];
-//            [FSUIKit showAlertWithMessage:error.localizedDescription controller:this];
-//        }else{
-//            [FSTrack event:_UMeng_Event_cent_success];
-//        }
-//    }];
-//}
-
-- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
