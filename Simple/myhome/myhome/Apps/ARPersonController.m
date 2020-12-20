@@ -16,7 +16,6 @@
 #import "FSMacro.h"
 #import "FSCryptorSupport.h"
 #import "FSSqlite3BroswerController.h"
-#import <MessageUI/MessageUI.h>
 #import "FSApp.h"
 #import "FSAppConfig.h"
 #import "FSTuple.h"
@@ -25,7 +24,6 @@
 
 @interface ARPersonController ()
 
-@property (nonatomic,strong) FSTapCell      *feedbackCell;
 @property (nonatomic,strong) FSTapCell      *aboutCell;
 @property (nonatomic,strong) FSTapCell      *silenceCell;
 @property (nonatomic,strong) FSTapCell      *clearCell;
@@ -65,36 +63,18 @@
 
 - (void)personHandleDatas{
     __weak typeof(self)this = self;
-    if (!_feedbackCell) {
+    if (!_clearCell) {
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(bbiAction)];
         bbi.tintColor = UIColor.blackColor;
         self.navigationItem.rightBarButtonItem = bbi;
         
         UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"数据库" style:UIBarButtonItemStylePlain target:self action:@selector(birdClick)];
         self.navigationItem.leftBarButtonItem = left;
-        
-        _feedbackCell = [[FSTapCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        _feedbackCell.frame = CGRectMake(0, 10, WIDTHFC, 64);
-        _feedbackCell.textLabel.text = @"反馈";
-        _feedbackCell.backgroundColor = UIColor.whiteColor;
-        [self.scrollView addSubview:_feedbackCell];
-        _feedbackCell.block = ^(FSTapCell *bCell) {
-            BOOL canSendMail = [MFMailComposeViewController canSendMail];
-            if (!canSendMail) {
-                [FSToast show:@"手机设置邮箱后才可以反馈信息"];
-                return;
-            }
-            [FSTrack event:_UMeng_Event_feedback];
-            NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-            NSString *subject = [[NSString alloc] initWithFormat:@"%@iOS %@",[infoDictionary objectForKey:@"CFBundleDisplayName"],@"反馈"];
-           
-            [FSShare emailShareWithSubject:subject on:this messageBody:nil recipients:@[_feedback_Email] fileData:nil fileName:nil mimeType:nil];
-        };
     }
         
     if (!self->_clearCell) {
         self->_clearCell = [[FSTapCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        self->_clearCell.frame = CGRectMake(0, self->_feedbackCell.bottom + 1, WIDTHFC, 64);
+        self->_clearCell.frame = CGRectMake(0, 10, WIDTHFC, 64);
         self->_clearCell.textLabel.text = @"清除缓存";
         self->_clearCell.detailTextLabel.font = [UIFont systemFontOfSize:13];
         self->_clearCell.backgroundColor = UIColor.whiteColor;
