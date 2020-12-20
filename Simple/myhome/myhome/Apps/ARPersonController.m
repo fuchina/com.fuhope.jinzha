@@ -127,7 +127,7 @@
     
     __block BOOL ttsClose = NO;
     _fs_dispatch_global_main_queue_async(^{
-        NSString *ttsSwitch = [FSAppConfig objectForKey:_appCfg_ttsSwitch];
+        NSString *ttsSwitch = [FSAppConfig objectForKey:_appCfg_speak];
         ttsClose = [ttsSwitch boolValue];
     }, ^{
         if (!self->_ttsSwitch) {
@@ -135,7 +135,7 @@
             [self->_ttsSwitch addTarget:self action:@selector(changeTTSSwitch) forControlEvents:UIControlEventValueChanged];
             [self->_silenceCell addSubview:self->_ttsSwitch];
         }
-        self-> _ttsSwitch.on = ttsClose;
+        self-> _ttsSwitch.on = !ttsClose;
     });
     
     if (!_exportCell) {
@@ -187,9 +187,9 @@
 }
 
 - (void)changeTTSSwitch {
-    BOOL fp = [[FSAppConfig objectForKey:_appCfg_ttsSwitch] boolValue];
+    BOOL fp = [[FSAppConfig objectForKey:_appCfg_speak] boolValue];
     NSNumber *num = @(!fp);
-    [FSAppConfig saveObject:num.stringValue forKey:_appCfg_ttsSwitch];
+    [FSAppConfig saveObject:num.stringValue forKey:_appCfg_speak];
     [self personHandleDatas];
 }
 

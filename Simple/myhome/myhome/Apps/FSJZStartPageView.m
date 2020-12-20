@@ -37,8 +37,8 @@
     _fs_dispatch_global_main_queue_async(^{
         [self handleDatas];
     }, ^{
-        BOOL ttsClose = [[FSAppConfig objectForKey:_appCfg_ttsSwitch] boolValue];
-        if (!ttsClose) {
+        BOOL play = [[FSAppConfig objectForKey:_appCfg_speak] boolValue];
+        if (play) {
             FSTTS *tts = FSTTS.new;
             [tts speech:self->_tip priority:0 wait:YES];
         }
