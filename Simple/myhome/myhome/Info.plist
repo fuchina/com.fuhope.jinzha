@@ -108,7 +108,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>请允许访问相册，这样就可以将截图保存到图册</string>
 	<key>UIBackgroundModes</key>
-	<array/>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
