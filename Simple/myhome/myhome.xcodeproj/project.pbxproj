@@ -620,7 +620,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.3.4;
+				CURRENT_PROJECT_VERSION = 3.3.6;
 				DEVELOPMENT_TEAM = U9Y4DBL6N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,7 +637,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/FSAccount/sdks/FSAccount/libs",
 				);
-				MARKETING_VERSION = 3.3.5;
+				MARKETING_VERSION = 3.3.6;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -663,7 +663,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.3.4;
+				CURRENT_PROJECT_VERSION = 3.3.6;
 				DEVELOPMENT_TEAM = U9Y4DBL6N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +680,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/FSAccount/sdks/FSAccount/libs",
 				);
-				MARKETING_VERSION = 3.3.5;
+				MARKETING_VERSION = 3.3.6;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
