@@ -10,7 +10,7 @@ target 'myhome' do
  
 #    pod 'FSDiary'
 #    pod 'FSToDo'
-    pod 'FSToast'
+#    pod 'FSToast'
     pod 'FSCryptor'
 #    pod 'FSShare'
     pod 'FSGesture'
@@ -51,6 +51,7 @@ target 'myhome' do
     pod 'FSShare', :path => '../../../FSShare'
     pod 'FSBaseController', :path => '../../../FSBaseController/'
     pod 'FSKit', :path => '../../../FSKit/'
+    pod 'FSToast', :path => '../../../FSToast/'
 #   pod 'FSJZKit', :path => '../../../FSJZKit/'
 
 end
