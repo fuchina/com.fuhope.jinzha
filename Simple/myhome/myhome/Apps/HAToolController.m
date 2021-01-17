@@ -55,6 +55,7 @@
 #import "FSJZStartPageView.h"
 #import "FSWebKitController.h"
 #import <MessageUI/MessageUI.h>
+#import "FSBirthAPI.h"
 
 //#import "FSEmptyView.h"
 
@@ -446,21 +447,9 @@
     }];
 }
 
-- (void)checkBirthday{
-    [FSBirthdayController todayBirthdays:^(NSArray *birthdays) {
-//        if (birthdays.count) {
-////            NSMutableString *title = [[NSMutableString alloc] initWithString:(@"Today", nil)];
-////            for (FSABBirthModel *model in birthdays) {
-////                [title appendFormat:@" %@、",[FSCryptor aes256DecryptString:model.name password:FSCryptorSupport.localUserDefaultsCorePassword]];
-////            }
-////            [title deleteCharactersInRange:NSMakeRange(title.length - 1, 1)];
-////            [title appendFormat:(@" birthday, quick to say happy birthday", nil)];
-//            self.births = [[NSString alloc] initWithFormat:@"今天你有%ld个朋友过生日，快去祝TA生日快乐吧!",birthdays.count];
-//        }else{
-//            self.births = nil;
-//        }
-        self.births = birthdays.count;
-        
+- (void)checkBirthday {
+    [FSBirthAPI todayBirthdaysCount:^(NSInteger count) {
+        self.births = count;
         [self showMessage];
     }];
 }
