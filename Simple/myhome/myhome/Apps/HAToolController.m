@@ -386,7 +386,7 @@
        
         NSDateComponents *c = [FSDate componentForDate:[NSDate date]];
         NSString *xl = [[NSString alloc] initWithFormat:@"%@-%@-%@\n",@(c.year),[FSKit twoChar:c.month],[FSKit twoChar:c.day]];
-        s = [[NSString alloc] initWithFormat:@"%@%@・%@",xl,nl,[self ChineseWeek:c.weekday]];
+        s = [[NSString alloc] initWithFormat:@"%@%@・%@",xl,nl,[FSDate ChineseWeek:c.weekday]];
     }, ^{
         if (!self->_timeLabel) {
             self ->_timeLabel = [[UILabel alloc] init];
@@ -400,11 +400,6 @@
         self ->_timeLabel.text = s;
         [self.scrollView addSubview:self ->_timeLabel];
     });
-}
-
-- (NSString *)ChineseWeek:(NSInteger)week {
-    NSArray *weeks = @[@"",@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
-    return weeks[week];
 }
 
 - (void)boardViewNotification:(NSNotification *)notification{
