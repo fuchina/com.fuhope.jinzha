@@ -52,7 +52,7 @@
 
 - (void)configUMeng{
     // 友盟帐号 1245102331@qq.com
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         UIDevice *device = [UIDevice currentDevice];
         NSString *phone = [[NSString alloc] initWithFormat:@"%@%@%@",device.name,device.model,device.systemVersion];
         if (phone.length > 16) {

@@ -66,7 +66,7 @@
         _days = (NSInteger)days;
         
         NSDateComponents *time = [FSDate componentForDate:now];
-        if (time.hour >= 21 && time.hour <= 24) {
+        if (time.hour >= 22 && time.hour <= 24) {
             _tip = @"念华，夜深了 ~";
         } else if (time.hour >= 0 && time.hour <= 6) {
             _tip = @"念华，凌晨好 ~";
@@ -76,7 +76,7 @@
             _tip = @"念华，中午好 ~";
         } else if (time.hour >= 14 && time.hour <= 18) {
             _tip = @"念华，下午好 ~";
-        } else if (time.hour > 18 && time.hour < 21) {
+        } else if (time.hour > 18 && time.hour < 22) {
             _tip = @"念华，晚上好 ~";
         } else {
             _tip = @"念华，你好呐 ~";
