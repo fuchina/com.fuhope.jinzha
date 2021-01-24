@@ -125,7 +125,7 @@
     _timeLabel.alpha = 0;
     [self addSubview:_timeLabel];
     
-    [UIView animateWithDuration:3 animations:^{
+    [UIView animateWithDuration:2 animations:^{
         self-> _label.alpha = 1;
         self-> _timeLabel.alpha = 1;
     } completion:^(BOOL finished) {
