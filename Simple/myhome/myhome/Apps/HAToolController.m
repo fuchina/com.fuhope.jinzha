@@ -1077,6 +1077,7 @@ NSString *_key_day = @"everyDiary_day";
             }
             NSString *notToday = @"今天不再提醒";
             NSString *readed = @"已读";
+            NSString *copy = @"复制";
             NSNumber *type = @(UIAlertActionStyleDefault);
 
             int count = [data._3 intValue];
@@ -1085,11 +1086,11 @@ NSString *_key_day = @"everyDiary_day";
             NSArray *styles = nil;
             if (count > 1) {
                 nextOne = [[NSString alloc] initWithFormat:@"下一篇（%d）",count - 1];
-                titles = @[readed,nextOne,notToday];
-                styles = @[type,type,type];
+                titles = @[readed,nextOne,copy,notToday];
+                styles = @[type,type,type,type];
             } else {
-                titles = @[readed,notToday];
-                styles = @[type,type];
+                titles = @[readed,copy,notToday];
+                styles = @[type,type,type];
             }
 
             [FSUIKit alert:UIAlertControllerStyleAlert controller:self title:@"每日一温" message:data._1 actionTitles:titles styles:styles handler:^(UIAlertAction *action) {
@@ -1106,6 +1107,9 @@ NSString *_key_day = @"everyDiary_day";
                     }, ^{
                         [self mustSeeOneDiaryEveryday:YES];
                     });
+                } else if ([action.title isEqualToString:copy]) {
+                    [FSKit copyToPasteboard:data._1];
+                    [FSToast show:@"已复制"];
                 }
             } cancelTitle:@"取消" cancel:nil completion:nil];
         }
