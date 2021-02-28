@@ -663,7 +663,8 @@
 - (void)actionForType:(Tuple3 *)t{
     NSInteger type = [t._3 integerValue];
     if (type == FSActionTypeCalculator) {
-        [self pushToAccounts:101];
+        // [self pushToAccounts:101];
+        [FSKit pushToViewControllerWithClass:@"FSCalculatorController" navigationController:self.navigationController param:nil configBlock:nil];
     } else if (type == FSActionTypeOther) {
 #if DEBUG
         [FSKit pushToViewControllerWithClass:@"FSToolKitController" navigationController:self.navigationController param:nil configBlock:nil];
