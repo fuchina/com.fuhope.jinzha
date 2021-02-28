@@ -663,7 +663,7 @@
 - (void)actionForType:(Tuple3 *)t{
     NSInteger type = [t._3 integerValue];
     if (type == FSActionTypeCalculator) {
-        [self pushToCalculators];
+        [self pushToMakeImages];
     } else if (type == FSActionTypeOther) {
 #if DEBUG
         [FSKit pushToViewControllerWithClass:@"FSToolKitController" navigationController:self.navigationController param:nil configBlock:nil];
@@ -732,6 +732,10 @@
     }
 }
 
+- (void)pushToMakeImages {
+    
+}
+
 - (void)pushToCounter{
     NSArray *datas = @[
               @{Text_Name:@"贷款计算器"},
@@ -771,41 +775,6 @@
             [FSKit pushToViewControllerWithClass:@"FSASCalculatorController" navigationController:this.navigationController param:@{@"table":table} configBlock:nil];
         }
     };
-}
-
-- (void)pushToCalculators{
-    NSArray *datas = nil;
-#if DEBUG
-        datas = @[
-                     @{Text_Name:@"计算器"},
-                     @{Text_Name:@"个税计算器"},
-                     @{Text_Name:@"投资平衡"},
-                     @{Text_Name:@"草船借箭"},
-                     ];
-#else
-        datas = @[
-                     @{Text_Name:@"计算器"},
-                     //    @{Text_Name:(@"Tax calculator", nil)},
-                     ];
-#endif
-    
-    [self pushToAccesses:@"计算工具" datas:datas classArray:^NSArray *{
-        NSArray *classArray = nil;
-#if DEBUG
-        classArray = @[
-                       @"FSCalculatorController",
-                       @"FSTaxOfIncomeController",
-                       @"FSBalanceController",
-                       @"FSBorrowArrowController",
-                       ];
-#else
-        classArray = @[
-                       @"FSCalculatorController",
-                       //            @"FSTaxOfIncomeController",
-                       ];
-#endif
-        return classArray;
-    } click:nil];
 }
 
 - (void)pushToAccesses:(NSString *)title datas:(NSArray *)datas classArray:(NSArray * (^)(void))classArray click:(void (^)(NSInteger n))custom{
