@@ -663,7 +663,7 @@
 - (void)actionForType:(Tuple3 *)t{
     NSInteger type = [t._3 integerValue];
     if (type == FSActionTypeCalculator) {
-        [self pushToMakeImages];
+        [self pushToAccounts:101];
     } else if (type == FSActionTypeOther) {
 #if DEBUG
         [FSKit pushToViewControllerWithClass:@"FSToolKitController" navigationController:self.navigationController param:nil configBlock:nil];
@@ -732,10 +732,6 @@
     }
 }
 
-- (void)pushToMakeImages {
-    
-}
-
 - (void)pushToCounter{
     NSArray *datas = @[
               @{Text_Name:@"贷款计算器"},
@@ -773,6 +769,8 @@
             [this.navigationController pushViewController:i animated:YES];
         }else if (type == 100){
             [FSKit pushToViewControllerWithClass:@"FSASCalculatorController" navigationController:this.navigationController param:@{@"table":table} configBlock:nil];
+        } else if (type == 101) {
+            [FSKit pushToViewControllerWithClass:@"FSMakeImagesController" navigationController:this.navigationController param:@{@"table":table} configBlock:nil];
         }
     };
 }
