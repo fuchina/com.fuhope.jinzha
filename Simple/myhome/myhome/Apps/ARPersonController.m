@@ -144,11 +144,11 @@
     if (!_aboutCell) {
         _aboutCell = [[FSTapCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         _aboutCell.frame = CGRectMake(0, _exportCell.bottom + 1, WIDTHFC, 64);
-        _aboutCell.textLabel.text = @"关于念华";
+        _aboutCell.textLabel.text = @"关于荷华";
         _aboutCell.backgroundColor = UIColor.whiteColor;
         [self.scrollView addSubview:_aboutCell];
         _aboutCell.block = ^(FSTapCell *bCell) {
-            [FSKit pushToViewControllerWithClass:@"ARAboutController" navigationController:this.navigationController param:@{@"title":@"关于念华"} configBlock:nil];
+            [FSKit pushToViewControllerWithClass:@"ARAboutController" navigationController:this.navigationController param:@{@"title":@"关于荷华"} configBlock:nil];
         };
     }
     

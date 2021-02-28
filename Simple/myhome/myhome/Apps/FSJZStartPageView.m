@@ -55,7 +55,7 @@
         [FSTrack event:@"startCrash"];
     } @finally {
         if (![then isKindOfClass:NSDate.class]) {
-            _tip = @"念华，你好呐 ~";
+            _tip = @"你好呐 ~";
             return;
         }
         NSDate *now = NSDate.date;
@@ -67,19 +67,19 @@
         
         NSDateComponents *time = [FSDate componentForDate:now];
         if (time.hour >= 22 && time.hour <= 24) {
-            _tip = @"念华，夜深了 ~";
+            _tip = @"夜深了 ~";
         } else if (time.hour >= 0 && time.hour <= 6) {
-            _tip = @"念华，凌晨好 ~";
+            _tip = @"凌晨好 ~";
         } else if (time.hour > 6 && time.hour <= 10) {
-            _tip = @"念华，早上好 ~";
+            _tip = @"早上好 ~";
         } else if (time.hour > 10 && time.hour < 14) {
-            _tip = @"念华，中午好 ~";
+            _tip = @"中午好 ~";
         } else if (time.hour >= 14 && time.hour <= 18) {
-            _tip = @"念华，下午好 ~";
+            _tip = @"下午好 ~";
         } else if (time.hour > 18 && time.hour < 22) {
-            _tip = @"念华，晚上好 ~";
+            _tip = @"晚上好 ~";
         } else {
-            _tip = @"念华，你好呐 ~";
+            _tip = @"你好呐 ~";
         }
     }
 }
